@@ -1,0 +1,35 @@
+import java.util.Scanner;
+import java.util.Random;
+public class number_game {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();       
+        int system_choice = rand.nextInt(101); 
+        int maxTries = 10;
+        for (int i = 1; i <= maxTries; i++) {
+            System.out.print("Enter your guess: ");
+            int guess = sc.nextInt();
+            int triesLeft = maxTries - i;
+            
+            if (guess == system_choice) {
+                System.out.println("Your guess is correct!");
+                System.out.println("You guessed in " + i + " tries.");
+                return; // End the game
+            } 
+            else if (guess < system_choice) {
+                System.out.println("Your guess is too low!");
+            } 
+            else {
+                System.out.println("Your guess is too high!");
+            }
+            
+            if (triesLeft > 0) {
+                System.out.println("Number of tries left: " + triesLeft);
+            } else {
+                System.out.println("No tries left! The correct number was " + system_choice);
+            }
+        }
+        
+        
+    }
+}
